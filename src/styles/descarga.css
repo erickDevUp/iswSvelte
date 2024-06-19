@@ -1,0 +1,41 @@
+main {
+  --color-primary: #00135a;
+  --color-secondary: #e7a312;
+  --color-try: #f7f7f7;
+
+  --color-bg-lith: #fff;
+  --color-bg-dark: #000;
+  scroll-behavior: smooth;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.min__recursos > ul {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+}
+.min__recursos > ul > li {
+  margin: 2%;
+  width: 100%;
+  padding: 3%;
+  background-color: var(--color-try);
+  box-shadow: 0 0 5px #2d304748;
+  border-radius: 6px;
+}
+
+.min__recursos > ul > li > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.min__recursos > ul > li > div > button {
+    background-color: transparent;
+    border: none;
+}
+.min__recursos > ul > li > div > button:hover {
+    background-color: var(--color-secondary);
+
+}
