@@ -129,13 +129,17 @@
 .modal__t button:hover{
 color: #e7a312;
 }
-.content input{
-    font-size: 1.5em;
+.content input , .content select{
+    font-size: 1em;
     border-radius: 5px;
-    margin: 20px;
+    border: none;
+    border:#000 solid 1px;
+    padding: 5px;
+    margin: 10px;
     width: 100%;
+    outline: none;
 }
-.content input:hover{
+.content input:hover, .content select:hover{
     box-shadow:  0 0 5px rgba(0, 0, 0, 0.308);
 }
 .content{
@@ -171,4 +175,12 @@ color: #e7a312;
     height: 100%;
     z-index: 999;
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+   
+    .drag__area{
+        height: 200px;
+        width: 100%;
+    }
 }
