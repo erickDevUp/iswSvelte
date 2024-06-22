@@ -68,6 +68,11 @@
   font-size: 1em;
   cursor: pointer;
 }
+.cont .card__button {
+  position: absolute;
+  top: 5px;
+  right: 0;
+}
 
 .link-menu {
   position: fixed;
@@ -162,9 +167,11 @@ th {
 }
 
 .header__buttom>button>span {
-  font-size: 2em;
+  font-size: 1.5em;
   color: blue;
+  cursor: pointer;
 }
+
 
 .cont__table>tbody>tr:hover {
   background-color: #e7a312;
@@ -176,4 +183,10 @@ th {
 
 button>span:hover {
   color: #e7a312;
+}
+
+@media (width<878px) {
+  .header__buttom>button>span {
+    font-size: 1em;
+  }
 }
