@@ -15,6 +15,7 @@
 	<div class="nt__d">
 		<p>Asunto Lorem ipsum dolor sit amet.</p>
 		<p>nombre orientacion</p>
+		<p>Nota: <span style="color: green;">5</span></p>
 	</div>
 	<div class="header__buttom card__button">
 		<button on:click={() => isShowEdit = true}><span class="ti-pencil-alt"></span></button>

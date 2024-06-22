@@ -8,8 +8,8 @@
 </script>
 <nav class={` link-menu link-menu${isShow?"":"-hidden"}`}>
     <div>
-      <a href="inE.html"><span class="ti-home"></span>Principal</a>
-      <a href="/estudiante/tarea"><span class="ti-agenda"></span>Tareas</a>
-      <a href="/estudiante/recurso-educativo"><span class="ti-desktop"></span>Recursos Educativos</a>
+      <a href="/estudiante/orientaciones"><span class="ti-agenda"></span>Orientaciones</a>
+      <a href="/estudiante/tareas"><span class="ti-book"></span>Tareas</a>
+      <a href="/estudiante/recursos-educativos"><span class="ti-desktop"></span>Recursos Educativos</a>
     </div>
   </nav>

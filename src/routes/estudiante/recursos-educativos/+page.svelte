@@ -1,5 +1,5 @@
 <script>
-  import RecursoEducativo from "../../../components/RecursoEducativo.svelte"
+  import RecursoEducativo from "../../../components/ViewData.svelte"
 
 </script>
 
