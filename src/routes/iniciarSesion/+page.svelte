@@ -108,7 +108,7 @@
 					</span>
 				{/each}
 			</div>
-			<a href="singin" class="">Ya tienes cuenta ?</a>
+			<a href="registrarUsuario" class="">Ya tienes cuenta ?</a>
 		</div>
 	</form>
 	<footer>

@@ -73,6 +73,8 @@ body {
   border-radius: 5px;
   padding: 5px 30px;
   border: none;
+  text-decoration: none;
+  cursor: pointer;
 }
 .div__cont > .cont__paner {
   width: 400px;
@@ -173,7 +175,7 @@ span{
   width: 95%;
   padding: 2%;
 }
-.regist > .div__cont > .cont__form > form > button {
+.regist > .div__cont > .cont__form > form > button  {
   font-size: 1.3em;
   width: 93%;
   background-color: rgb(101, 101, 248);
@@ -203,7 +205,7 @@ span{
   margin-bottom: 50px;
 }
 
-.soport > .div__cont > .cont__txt > button {
+.soport > .div__cont > .cont__txt > button, .soport > .div__cont > .cont__txt > a {
   font-size: 1.3em;
   font-weight: bold;
   background-color: rgb(101, 101, 248);
@@ -211,6 +213,7 @@ span{
   border-radius: 5px;
   padding: 5px 30px;
   border: none;
+  text-decoration: none;
 
 }
 
@@ -252,3 +255,46 @@ span{
     color:rgb(212, 212, 212);
     border: 1px solid rgb(212, 212, 212);
   }
+
+  @media screen and (max-width: 768px) {
+    .body__div,.last__div,.div__cont,.precent,.ofert,.object,.regist,.soport,.last__div {
+       padding: 1%; /* Reduce el padding para pantallas más pequeñas */
+     }
+   
+    .div__cont > img,.ofert >.div__cont >.cont__img > img,.object >.div__cont > img,.soport >.div__cont > img {
+       width: 100%; /* Ajusta el ancho de las imágenes para que sean responsivas */
+       padding: 0; /* Elimina el padding para imágenes en pantallas pequeñas */
+     }
+   
+    .cont__title,.cont__description,.cont__button,.ofert >.div__cont >.cont__txt,.object >.div__cont >.cont__txt,.regist >.div__cont >.cont__txt,.soport >.div__cont >.cont__txt {
+       font-size: 1em; /* Reduce el tamaño de fuente para pantallas más pequeñas */
+       margin-bottom: 1%; /* Reduce el margen inferior para pantallas más pequeñas */
+     }
+   
+    .regist >.div__cont >.cont__form > form {
+       width: 100%; /* Ajusta el ancho del formulario para pantallas más pequeñas */
+       padding: 5%; /* Reduce el padding del formulario para pantallas más pequeñas */
+     }
+   
+    .regist >.div__cont >.cont__form > form > div > input,.regist >.div__cont >.cont__form > form > button {
+       width: 90%; /* Ajusta el ancho de inputs y botones para pantallas más pequeñas */
+       padding: 1%; /* Reduce el padding para pantallas más pequeñas */
+     }
+   
+    .last__div >.div__cont >.cont__txt {
+       width: 100%; /* Ajusta el ancho del texto en el footer para pantallas más pequeñas */
+     }
+   
+    .last__div >.div__cont > div > button {
+       padding: 3px 15px; /* Ajusta el padding de los botones en el footer para pantallas más pequeñas */
+       margin: 5px; /* Reduce el margen de los botones en el footer para pantallas más pequeñas */
+     }
+   }
+   
+   @media screen and (min-width: 769px) and (max-width: 1024px) {
+     /* Aquí puedes añadir estilos para tablets o pantallas medianas si es necesario */
+   }
+   
+   @media screen and (min-width: 1025px) {
+     /* Aquí puedes añadir estilos para pantallas grandes si es necesario */
+   }

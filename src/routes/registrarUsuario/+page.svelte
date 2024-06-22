@@ -7,15 +7,16 @@
         <div class="div_title">
           <div class="header__img"><img src="/img/logo__color_principal-smal.png" alt=""></div>
           <p class="header__cont ">Autenticar Usuario</p>
-          <p class="header__tex">Bienvenido !</p>
           
         </div>
         <div class="div__input">
-          <input type="email" placeholder="Correo"/>
+          <input type="email" placeholder="Correo"/>          
+          <input type="text" placeholder="Nombre de usuario"/>
           <input type="password" placeholder="Contraseña" />
+          
           <button type="submit" >Iniciar</button>
         </div>
-        <a href="singup" class="">No tienes cuenta ?</a>
+        <a href="iniciarSesion" class="">No tienes cuenta ?</a>
       </div>
     </form>
     <footer>
