@@ -9,7 +9,6 @@
 </svelte:head>
 
 <section>
-	
 </section>
 
 <style>

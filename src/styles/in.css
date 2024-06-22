@@ -1,0 +1,137 @@
+* {
+  box-sizing: border-box;
+  font-family: mon, monospace;
+
+
+  --color-primary: #00135a;
+  --color-secondary: #e7a312;
+  --color-try: #f7f7f7;
+
+  --color-bg-lith: #fff;
+  --color-bg-dark: #000;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  position: relative;
+
+}
+
+header {
+  width: 100%;
+  background-color: #00145a93;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 5px #00135a;
+  position: fixed;
+  z-index: 999;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  
+}
+
+
+section {
+  padding: 5%;
+  padding-top: 60px;
+  height: 100%;
+  width: 100%;
+  margin-left: 20%;
+  background-color: white;
+  
+  border-left: 1px solid rgba(0, 0, 0, 0.205);
+}
+
+nav>div {
+  display: flex;
+  flex-direction: column;
+}
+
+nav>div>a {
+  margin: 3%;
+  margin-left: 20px;
+  color: blue;
+  text-decoration: none;
+  border-bottom: rgba(0, 0, 0, 0.13) 1px solid;
+}
+
+/****************************************************/
+/****************************************************/
+/****************************************************/
+/****************************************************/
+/****************************************************/
+header>div {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  font-size: 0.8em;
+  align-items: center;
+  color: white;
+}
+header span {
+  display: none;
+}
+header>div>div {
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  padding: 5px;
+  border-radius: 100%;
+  margin-left: 10px;
+  margin-right: 5px;
+
+}
+
+header>div>div>img {
+  height: 22px;
+
+}
+
+
+
+.cont {
+  min-height: 200px;
+}
+
+span {
+  margin-right: 5px;
+}
+
+
+
+a:hover {
+  text-decoration: underline;
+  color: #e7a312;
+}
+
+
+/*----------------------------------------------responsive------------------------------------------------*/
+@media (width<878px) {
+  header>div {
+    justify-content: space-between;
+    padding: 5px;
+
+  }
+
+  header {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  header span {
+    display: inline;
+  }
+  section {
+    margin-left: 0;
+  }
+  main {
+    flex-direction: column;
+  }
+}

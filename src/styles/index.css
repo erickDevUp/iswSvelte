@@ -1,0 +1,254 @@
+body {
+  background-color: rgb(247, 247, 247);
+  padding: 0%;
+  margin: 0%;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+.body__div {
+  min-width: 100dvh;
+  min-height: 200px;
+  background-color: white;
+  margin-bottom: 2%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.103);
+}
+.last__div {
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.801);
+}
+
+.div__cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+}
+
+/* --------------Primera Etiqueta: Precentacion----------- */
+
+.precent {
+  background-image: url(/img/baner.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.body__div > .div__baner {
+  background-color: rgba(255, 255, 255, 0.829);
+  backdrop-filter: blur(5px);
+  width: 100%;
+  height: 100%;
+}
+.body__div > .div__baner > .div__cont {
+  padding: 10%;
+}
+.div__cont > img {
+  width: 10em;
+  margin: 0;
+}
+.div__cont > .cont__txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 70%;
+  text-align: center;
+}
+.cont__title {
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.cont__description {
+  font-size: 1.5em;
+  font-weight: 300;
+  text-wrap: pretty;
+  margin-bottom: 3%;
+}
+.cont__button {
+  font-size: 1.5em;
+  font-weight: 500;
+  background-color: rgb(101, 101, 248);
+  color: white;
+  border-radius: 5px;
+  padding: 5px 30px;
+  border: none;
+}
+.div__cont > .cont__paner {
+  width: 400px;
+}
+
+/* --------------Segunda Etiqueta: Oferta----------- */
+.ofert {
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ofert > .div__cont {
+  align-items: center;
+  text-align: center;
+  max-width: 70%;
+  justify-content: center;
+  align-items: center;
+}
+.ofert > .div__cont > .cont__txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 70%;
+  text-align: center;
+  text-wrap: pretty;
+}
+span{
+    font-weight: bold;
+}
+.ofert > .div__cont > .cont__img {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.336);
+  border-radius: 10px;
+}
+.ofert > .div__cont > .cont__img > img {
+  width: 500px;
+  padding: 3px;
+}
+
+/* --------------Tercera Etiqueta: Objet----------- */
+.object {
+  padding: 2%;
+}
+.object > .div__cont {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+}
+.object > .div__cont > .cont__txt {
+  text-align: center;
+  text-wrap: pretty;
+  width: 500px;
+}
+
+.object > .div__cont > img {
+  width: 600px;
+}
+
+/* --------------Cuart Etiqueta: Registrar----------- */
+.regist {
+  padding: 2%;
+}
+.regist > .div__cont {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.regist > .div__cont > .cont__txt {
+  text-align: left;
+  text-wrap: pretty;  
+  width: 500px;
+}
+.regist > .div__cont > .cont__form {
+  margin-left: 30px;
+  padding: 3% 5%;
+}
+.regist > .div__cont > .cont__form > form {
+  padding: 10%;
+  width: 400px;
+  border-radius: 6px;
+  border: 0.1px solid rgba(0, 0, 255, 0.116);
+  background-color: rgba(149, 149, 255, 0.075);
+}
+
+.regist > .div__cont > .cont__form > form > div,
+.regist > .div__cont > .cont__form > form > hr,
+.regist > .div__cont > .cont__form > form > small,
+.regist > .div__cont > .cont__form > form > button {
+  margin: 3%;
+}
+.regist > .div__cont > .cont__form > form > div > input {
+  font-size: 1.3em;
+  border-radius: 5px;
+  border: 0.1px solid rgba(0, 0, 255, 0.363);
+  width: 95%;
+  padding: 2%;
+}
+.regist > .div__cont > .cont__form > form > button {
+  font-size: 1.3em;
+  width: 93%;
+  background-color: rgb(101, 101, 248);
+  color: white;
+  border-radius: 5px;
+  padding: 5px 30px;
+  border: none;
+}
+
+/* --------------Quinta Etiqueta: Soporte----------- */
+.soport {
+  padding: 3% 10%;
+}
+.soport > .div__cont {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.158);
+  border-radius: 6px;
+}
+.soport > .div__cont > .cont__txt {
+  text-align: left;
+  align-items: start;
+  text-wrap: pretty;
+  width: 500px;
+  margin-bottom: 50px;
+}
+
+.soport > .div__cont > .cont__txt > button {
+  font-size: 1.3em;
+  font-weight: bold;
+  background-color: rgb(101, 101, 248);
+  color: white;
+  border-radius: 5px;
+  padding: 5px 30px;
+  border: none;
+
+}
+
+.soport > .div__cont > img {
+  margin: 0 5%;
+  width: 300px;
+}
+
+/* --------------Sexta Etiqueta: Footer----------- */
+.last__div {
+  padding: 3%;
+}
+.last__div > .div__cont > .cont__txt {
+  text-align: center;
+  align-items: center;
+  text-wrap: pretty;
+  width: 800px;
+  color: white;
+}
+.last__div > .div__cont > .cont__txt>.cont__description{
+    color: rgba(255, 255, 255, 0.644);
+}
+.last__div > .div__cont > div > button {
+  font-size: 1.3em;
+  border-radius: 5px;
+  padding: 5px 30px;
+  margin: 10px;
+  font-weight: bold;
+}
+.last__div > .div__cont > div > .principal {
+  background-color:transparent;
+  color:rgb(101, 101, 248);
+  border: 1px solid rgb(101, 101, 248);
+  
+}
+
+.last__div > .div__cont > div > .segundario {
+    background-color:transparent;
+    color:rgb(212, 212, 212);
+    border: 1px solid rgb(212, 212, 212);
+  }
