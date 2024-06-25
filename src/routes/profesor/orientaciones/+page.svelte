@@ -1,6 +1,5 @@
 <script>
-	import Orientacion from '../../../components/WriteData.svelte';
-	import { obtOrientaciones } from '../../../services/obtOrientaciones';
+	import Orientacion from '../../../components/WriteOrientacion.svelte';
 	import AddObject from "../../../components/modals/AddObject.svelte";
 	import { orientacionesStore } from '../../../store/orientacionesStore';
 	import Search from '../../../components/Search.svelte';
@@ -13,11 +12,12 @@
 	onMount(async () => {
 		await cargarOrientaciones();
 	});
+	const fetchUrl = 'gestionarOrientacion/';
 </script>
 
 <section>
 	<div>
-		<Search url="gestionarOrientacion/"></Search>
+		<Search url={fetchUrl} getObject={cargarOrientaciones} store={orientacionesStore} />
 		<div class="section__header">
 			
 			<h1>Orientaciones</h1>
@@ -33,5 +33,5 @@
 		{/each}
 	</div>
 	
-    <AddObject on:click={() => isShowAddOrientacion = false} isShow={isShowAddOrientacion} url="gestionarOrientacion/" pageName="Orientación"/>
+    <AddObject on:click={() => isShowAddOrientacion = false} isShow={isShowAddOrientacion} url={fetchUrl} pageName="Orientación"/>
 </section>
