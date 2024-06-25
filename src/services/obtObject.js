@@ -7,7 +7,7 @@ import { apiUrl } from "../consts";
 
 
 // Función asíncrona para realizar la solicitud GET
-export async function obtOrientaciones(url) {
+export async function obtObject(url) {
     const authToken = localStorage.getItem('token');
 
     const options = {
