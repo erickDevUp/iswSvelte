@@ -1,8 +1,19 @@
 <script>
+  import Layout from './layout.svelte';
+ 
+  import { createEventDispatcher } from 'svelte';
   export let mensaje;
   export let isShow;
-  import '../../styles/vm.css';
-  import Layout from './layout.svelte';
+  
+  const dispatch = createEventDispatcher();
+
+  function handleClickCheck() {
+    dispatch('check', { mensaje, isShow });
+  }
+
+  function handleClickClose() {
+    dispatch('close', { mensaje, isShow });
+  }
 
 </script>
 
@@ -13,8 +24,8 @@
       <p>{mensaje}</p>
     </div>
     <div class="alert__b">
-      <button class="ti-check"></button>
-      <button class="ti-close" on:click></button>
+      <button class="ti-check" on:click={handleClickCheck}></button>
+      <button class="ti-close" on:click={handleClickClose}></button>
     </div>
   </div>
 </Layout>
