@@ -1,5 +1,4 @@
 <script>
-	import '../../styles/vm.css';
 	import Layout from './layout.svelte';
 	export let isShow;
 	let hasFiles = false;

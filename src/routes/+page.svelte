@@ -1,11 +1,13 @@
 <script>
-	import '../styles/index.css';
 	// haz  un link manual con el btn comenzar
 	import { goto } from '$app/navigation';
 	
 
 </script>
 
+<svelte:head>
+  <link rel="stylesheet" href="/styles/index.css" />
+</svelte:head>
 <body>
 	<div class="body__div precent">
 		<div class="div__baner">

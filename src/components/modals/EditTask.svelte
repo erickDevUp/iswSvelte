@@ -1,8 +1,15 @@
 <script>
-	import '../../styles/vm.css';
 	import Layout from './layout.svelte';
 	export let isShow;
 	let hasFiles = false;
+	let selectedOption = ''; // Variable para almacenar la opción seleccionada
+
+	// Lista de opciones para el <select>
+	const options = [
+		{ value: 'opcion1', label: 'Opción 1' },
+		{ value: 'opcion2', label: 'Opción 2' },
+		{ value: 'opcion3', label: 'Opción 3' }
+	];
 
 	function handleFileInput(event) {
 		const files = event.target.files;
@@ -24,6 +31,12 @@
 		<hr />
 		<div class="content">
 			<input type="text" placeholder="Asunto" />
+			<select bind:value={selectedOption}>
+				<option value="" disabled selected hidden>Selecciona una orientacion</option>
+				{#each options as option}
+					<option value={option.value}>{option.label}</option>
+				{/each}
+			</select>
 			<div class="drag__area">
 				{#if hasFiles}
 					<h2>Archivo seleccionado exitosamente</h2>
