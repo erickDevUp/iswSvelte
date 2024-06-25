@@ -20,7 +20,7 @@ body {
   align-items: center;
   justify-content: center ;
   min-height: 100vh;
-  background-image: url(../lib/images/baner.jpg);
+  background-image: url(/img/baner.jpg);
   background-size: cover;
   background-position: center;
   

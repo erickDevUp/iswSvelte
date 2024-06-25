@@ -58,7 +58,7 @@
   text-wrap: pretty;
 }
 
-.cont>.cont__nt>button {
+.cont>.cont__nt>button , .cont>.cont__nt>a>button {
   position: absolute;
   top: 5px;
   right: 0;
@@ -161,12 +161,12 @@ th {
   justify-content: space-between;
 }
 
-.header__buttom>button {
+.header__buttom>button , .header__buttom>a>button {
   background-color: transparent;
   border: none;
 }
 
-.header__buttom>button>span {
+.header__buttom>button>span , .header__buttom>a>button>span {
   font-size: 1.5em;
   color: blue;
   cursor: pointer;
@@ -186,7 +186,7 @@ button>span:hover {
 }
 
 @media (width<878px) {
-  .header__buttom>button>span {
+  .header__buttom>button>span, .header__buttom>a>button>span {
     font-size: 1em;
   }
 }
