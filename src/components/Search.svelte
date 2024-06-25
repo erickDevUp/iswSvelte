@@ -1,10 +1,12 @@
 <script>
 	import { searchObject } from '../services/searchObject';
-	import { orientacionesStore } from '../store/orientacionesStore';
-	import { cargarOrientaciones } from '../helpers/cargarOrientaciones';
-	import { onMount } from 'svelte';
 
+
+
+	export let getObject;
+	export let store;
 	export let url;
+	
 	let searchValue = '';
 
 	async function handleSearch(e) {
@@ -13,7 +15,7 @@
 		const result = await searchObject(url, searchValue);
 
 		if (result) {
-			orientacionesStore.set(result);
+			store.set(result);
 		} else {
 			alert('error al buscar la orientación');
 		}
@@ -21,7 +23,7 @@
 
 	async function handleCancel(e) {
 		e.preventDefault();
-		await cargarOrientaciones();
+		await getObject();
 		searchValue = '';
 	}
 </script>
