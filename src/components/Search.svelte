@@ -1,0 +1,100 @@
+<script>
+	import { searchObject } from '../services/searchObject';
+	import { orientacionesStore } from '../store/orientacionesStore';
+	import { cargarOrientaciones } from '../helpers/cargarOrientaciones';
+	import { onMount } from 'svelte';
+
+	export let url;
+	let searchValue = '';
+
+	async function handleSearch(e) {
+		e.preventDefault();
+
+		const result = await searchObject(url, searchValue);
+
+		if (result) {
+			orientacionesStore.set(result);
+		} else {
+			alert('error al buscar la orientación');
+		}
+	}
+
+	async function handleCancel(e) {
+		e.preventDefault();
+		await cargarOrientaciones();
+		searchValue = '';
+	}
+</script>
+
+<div class="search">
+	<input
+		type="text"
+		placeholder="Buscar..."
+		pattern="[a-zA-Z0-9]*"
+		bind:value={searchValue}
+		title="Por favor, no utilizar caracteres especiales"
+	/>
+	<div>
+		{#if searchValue.length > 0}
+			<button class="search-cancel" on:click={handleCancel}><span>&#x2715;</span></button>
+		{/if}
+		<button class="search-button" on:click={handleSearch}><span class="ti-search"></span></button>
+	</div>
+</div>
+
+<style>
+	.search {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 20px;
+		flex: 1;
+		border: 2px solid #ddd; /* Bordes más claros para el campo de entrada */
+		border-radius: 4px; /* Redondea las esquinas del campo de entrada */
+		transition: border-color 0.3s ease; /* Transición suave para el color del borde */
+		outline: none; /* Quita el borde al enfocar */
+	}
+	.search input {
+		border: none;
+		background-color: transparent;
+		outline: none;
+		padding: 0.75rem; /* Un poco más de padding para un aspecto más moderno */
+		font-size: 1rem;
+		width: 100%;
+		height: 100%;
+	}
+
+	.search:focus {
+		border-color: #007bff; /* Cambia el color del borde a azul cuando está enfocado */
+	}
+	.search-button {
+		background-color: #007bff; /* Color de fondo azul */
+		color: white; /* Texto blanco */
+		border: none;
+		padding: 0.75rem 1rem; /* Más padding para un botón más grande */
+		border-radius: 4px; /* Redondea las esquinas del botón */
+		cursor: pointer;
+		font-size: 1rem;
+		transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+	}
+	.search-button:hover {
+		background-color: #0056b3; /* Oscurece el color de fondo al pasar el mouse */
+	}
+	.search div {
+		display: flex;
+		align-items: center;
+	}
+	.search-cancel {
+		background-color: transparent;
+		height: 100%;
+		border: none;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+		margin-right: 10px;
+	}
+	.search-cancel span {
+		font-size: 20px;
+		color: #007bff;
+		margin: auto;
+	}
+</style>
