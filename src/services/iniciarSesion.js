@@ -18,6 +18,7 @@ export async function iniciarSesion(username, password) {
         const response = await fetch(apiUrl + 'auth/login/', requestOptions);
 
         if (!response.ok) {
+            alert('Credenciales incorrectas');
             throw new Error('Respuesta no OK');
         }
 
