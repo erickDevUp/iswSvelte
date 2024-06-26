@@ -1,12 +1,10 @@
 <script>
 	import { searchObject } from '../services/searchObject';
 
-
-
 	export let getObject;
 	export let store;
 	export let url;
-	
+
 	let searchValue = '';
 
 	async function handleSearch(e) {
@@ -28,7 +26,7 @@
 	}
 </script>
 
-<div class="search">
+<form on:submit|preventDefault={handleSearch} class="search">
 	<input
 		type="text"
 		placeholder="Buscar..."
@@ -37,12 +35,13 @@
 		title="Por favor, no utilizar caracteres especiales"
 	/>
 	<div>
+		<button class="search-button" type="submit"><span class="ti-search"></span></button>
+	
 		{#if searchValue.length > 0}
-			<button class="search-cancel" on:click={handleCancel}><span>&#x2715;</span></button>
+			<button class="search-cancel" on:click|preventDefault={handleCancel}><span>&#x2715;</span></button>
 		{/if}
-		<button class="search-button" on:click={handleSearch}><span class="ti-search"></span></button>
 	</div>
-</div>
+</form>
 
 <style>
 	.search {
@@ -85,6 +84,7 @@
 	.search div {
 		display: flex;
 		align-items: center;
+		flex-direction: row-reverse;
 	}
 	.search-cancel {
 		background-color: transparent;
