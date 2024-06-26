@@ -12,12 +12,10 @@
 	});
 
 	const fetchUrl = 'recursoEducativo/';
-	console.log($recursoEDStore);
 </script>
 
 <section>
 	<Search url={fetchUrl} getObject={cargarRecursoED} store={recursoEDStore} />
-
 	<div>
 		<div class="section__header">
 			<h1>Recursos Educativos</h1>
