@@ -35,7 +35,7 @@
 			formElement.reset();
 			hasFiles=false;
 			editarOrientacion(id, response);
-			alert('Se ha enviado correctamente');
+			alert('Acción realizada con éxito');
         } else {
             alert('Error al enviar el formulario');
         }
