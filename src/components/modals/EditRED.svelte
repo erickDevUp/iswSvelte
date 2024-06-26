@@ -51,7 +51,7 @@
 		</div>
 		<hr />
 		<div class="content">
-			<input type="text" name="nombre" required pattern="[A-Za-z0-9 ]*" placeholder="Nombre del Recurso Educativo" title="Por favor no utilizar caracteres especiales." />
+			<input type="text" name="nombre" value={recursoED.nombre} required pattern="[A-Za-z0-9 ]*" placeholder="Nombre del Recurso Educativo" title="Por favor no utilizar caracteres especiales." />
 			
 			<div class="drag__area">
 				{#if hasFiles}
@@ -66,7 +66,6 @@
 					id="input-file"
 					class="addFile"
 					name="archivo"
-					required
 					on:change={handleFileInput}
 				/>
 			</div>
