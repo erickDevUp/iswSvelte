@@ -52,8 +52,8 @@
 		</div>
 		<hr />
 		<div class="content">
-			<input type="text" name="nombre" required pattern="[A-Za-z0-9 ]*" placeholder="Nombre de la Orientación" title="Por favor no utilizar caracteres especiales." />
-			<input type="text" name="tipo" pattern="[A-Za-z0-9 ]*" placeholder="Tipo de Orientacion" title="Por favor, no utilizar caracteres especiales." />
+			<input type="text" name="nombre" value={orientacion.nombre} required pattern="[A-Za-z0-9 ]*" placeholder="Nombre de la Orientación" title="Por favor, no utilizar caracteres especiales." />
+			<input type="text" name="tipo" value={orientacion.tipo} pattern="[A-Za-z0-9 ]*" placeholder="Tipo de Orientacion" title="Por favor, no utilizar caracteres especiales." />
 			<input type="datetime-local" name="fechaEntrega" value={parseDateTime} placeholder="Fecha de Entrega" />
 
 			<div class="drag__area">
@@ -69,7 +69,6 @@
 					id="input-file"
 					class="addFile"
 					name="archivo"
-					required
 					on:change={handleFileInput}
 				/>
 			</div>
