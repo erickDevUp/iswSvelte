@@ -26,7 +26,7 @@
 			formElement.reset();
 			hasFiles=false;
             orientacionesStore.update(orientaciones => [...orientaciones, response]);
-			alert('Se ha enviado correctamente');
+			alert('Acción realizada con éxito');
         } else {
             alert('Error al enviar el formulario');
         }

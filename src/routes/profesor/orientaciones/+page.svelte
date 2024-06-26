@@ -1,6 +1,6 @@
 <script>
 	import Orientacion from '../../../components/WriteOrientacion.svelte';
-	import AddObject from "../../../components/modals/AddObject.svelte";
+	import AddObject from "../../../components/modals/AddOrientacion.svelte";
 	import { orientacionesStore } from '../../../store/orientacionesStore';
 	import Search from '../../../components/Search.svelte';
 	import{cargarOrientaciones} from '../../../helpers/cargarOrientaciones';
