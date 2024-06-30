@@ -13,6 +13,9 @@ export const routes = {
         tareas: '/profesor/tareas',
         recursosEducativos: '/profesor/recursos-educativos',
     },
+    admin: {
+        orientaciones: '/admin',
+    },
 }
 
 
