@@ -1,5 +1,5 @@
 <script>
-	import Alert from './modals/Alert.svelte';
+	import Alert from './modals/Delete.svelte';
 	import EditTask from './modals/EditTask.svelte';
 	import { eliminarTarea } from '../store/tareaStore';
 	import { delObject} from "../services/delObject";

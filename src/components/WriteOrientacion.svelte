@@ -1,5 +1,5 @@
 <script>
-	import Alert from './modals/Alert.svelte';
+	import Alert from './modals/Delete.svelte';
 	import EditObject from './modals/EditOrientacion.svelte';
 	import { parseFecha } from '../helpers/parseFecha';
 	import { delObject} from "../services/delObject";

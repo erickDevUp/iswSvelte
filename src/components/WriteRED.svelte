@@ -1,5 +1,5 @@
 <script>
-	import Alert from './modals/Alert.svelte';
+	import Alert from './modals/Delete.svelte';
 	import EditRED from './modals/EditRED.svelte';
 	import { delObject} from "../services/delObject";
 	import { eliminarRecursoED } from '../store/recursoEDStore';
