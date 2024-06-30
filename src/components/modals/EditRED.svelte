@@ -3,6 +3,7 @@
 	import { addObject } from '../../services/addObject';
 	import { recursoEDStore,editarRecursoED } from '../../store/recursoEDStore';
 	import { get } from 'svelte/store';
+	import { createEventDispatcher } from 'svelte';
 	export let isShow;
 	let hasFiles = false;
 	let formElement; 
@@ -15,6 +16,7 @@
 	let recursoEDs = get(recursoEDStore);
 	let recursoED = recursoEDs.find(recursoED => recursoED.id === id);
 
+	
 	function handleFileInput(event) {
 		if (event.target.files.length > 0) {
 			hasFiles = true;
@@ -31,12 +33,10 @@
 		// Enviar el FormData al servidor
         const response = await addObject(url, formData, method);
         if (response) {
-			formElement.reset();
-			hasFiles=false;
 			editarRecursoED(id, response);
-			alert('Se ha enviado correctamente');
+			alert('Acción realizada con éxito');
         } else {
-            alert('Error al enviar el formulario');
+			alert('El nombre del recurso educativo ya se encuentra en el sistema');
         }
     }
 
@@ -46,7 +46,7 @@
 <Layout {isShow}>
 	<form class="modal" bind:this={formElement} on:submit|preventDefault={submitForm}>
 		<div class="modal__t">
-			<h1>Nuevo {pageName}</h1>
+			<h1>Editar {pageName}</h1>
 			<button on:click|preventDefault><span class="ti-close"></span></button>
 		</div>
 		<hr />
@@ -70,7 +70,7 @@
 				/>
 			</div>
 			<div id="preview"></div>
-			<button>Enviar</button>
+			<button >Enviar</button>
 		</div>
 	</form>
 </Layout>

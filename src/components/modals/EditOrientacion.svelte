@@ -32,12 +32,10 @@
 		// Enviar el FormData al servidor
         const response = await addObject(url, formData, method);
         if (response) {
-			formElement.reset();
-			hasFiles=false;
 			editarOrientacion(id, response);
 			alert('Acción realizada con éxito');
         } else {
-            alert('Error al enviar el formulario');
+            alert('El nombre de la orientación ya se encuentra en el sistema');
         }
     }
 
@@ -47,7 +45,7 @@
 <Layout {isShow}>
 	<form class="modal" bind:this={formElement} on:submit|preventDefault={submitForm}>
 		<div class="modal__t">
-			<h1>Nueva {pageName}</h1>
+			<h1>Editar {pageName}</h1>
 			<button on:click|preventDefault><span class="ti-close"></span></button>
 		</div>
 		<hr />
