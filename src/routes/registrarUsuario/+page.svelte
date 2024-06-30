@@ -1,7 +1,14 @@
 <script>	
-	let username = '';
-	let password = '';
-	let confirmPassword = '';
+	import { register } from '../../services/register';
+
+	let userData = {
+        username: '',
+        email: '',
+        password: '',
+		confirmPassword: '',
+        lastName: '',
+        firstName: ''
+    };
 //valida que userName no tenga caracteres especiales
 	let validations = {
 		numberCaracters: {
@@ -24,15 +31,12 @@
 			isValidate: false,
 			validation: 'Contraseña con al menos un símbolo especial.'
 		},
-		userNameNotSpecialChar: {
-			isValidate: true,
-			validation: 'El nombre de usuario no puede contener caracteres especiales.'
-		}
+		
 
 
 	};
 
-	function validatePass() {
+	function validate(password, username) {
 		// Resetear validaciones
 		for (let key in validations) {
 			validations[key].isValidate = false;
@@ -62,23 +66,26 @@
 		if (/[^A-Za-z0-9]/.test(password)) {
 			validations.specialChar.isValidate = true;
 		}
-		// Verificar que el nombre de usuario no contenga caracteres especiales
-		if (/[^A-Za-z0-9]/.test(username)) {
-			validations.userNameNotSpecialChar.isValidate = false;
-		}
+		
 		// Verificar si todas las validaciones pasaron
 		return Object.values(validations).every((val) => val.isValidate);
 	}
 
-	function submitForm() {
-		let isValidated = validatePass();
+	async function submitForm(event) {
+		event.preventDefault();
+		let isValidated = validate(userData.password, userData.username);
 
 		// Verificar coincidencia entre contraseña y confirmación de contraseña
-		if (password !== confirmPassword) {
+		if (userData.password !== userData.confirmPassword) {
 			isValidated = false;
 		}
 
 		if (isValidated) {
+			const formData = new FormData(event.target);
+			formData.delete('confirm_password');
+
+			const response = await register('auth/register/', formData, 'POST');
+
 			alert('Formulario enviado');
 		} else {
 			alert('Formlario no enviado , verifica si los datos registrados son correctos');
@@ -91,7 +98,7 @@
   <link rel="stylesheet" href="/styles/loginStyle.css" />
 </svelte:head>
 
-<div class="back__cont">
+<div class="back__cont registerUser">
 	<form on:submit|preventDefault={submitForm}>
 		<div class="div__log">
 			<div class="div_title">
@@ -99,27 +106,31 @@
 				<p class="header__cont">Registrar Usuario</p>
 			</div>
 			<div class="div__input">
-				<input bind:value={username} type="text" placeholder="Nombre de usuario" />
+				<input name="username" type="text" bind:value={userData.username} placeholder="Nombre de usuario" required pattern="[a-zA-Z0-9]*" />
+				<input name="email" type="email" bind:value={userData.email} placeholder="Email" required />
+				<input name="first_name" type="text" placeholder="Nombre" bind:value={userData.firstName} required pattern="[a-zA-Z0-9]*" />
+				<input name="last_name" type="text" placeholder="Apellido" bind:value={userData.lastName} required pattern="[a-zA-Z0-9]*" />
 				<input
-					bind:value={password}
-					on:input={validatePass}
+					name="password"
+					bind:value={userData.password}
+					on:input={()=>validate(userData.password, userData.username)}
 					type="password"
 					placeholder="Contraseña"
 					onchange=""
 				/>
-				<input bind:value={confirmPassword} type="password" placeholder="Confirmar Contraseña" />
+				<input name="confirm_password" bind:value={userData.confirmPassword} type="password" placeholder="Confirmar Contraseña" />
 				<button type="submit">Registrar</button>
 			</div>
 			<div>
 				{#each Object.entries(validations) as [key, validation]}
 					<span
-						class={`validationText ${password != '' ? 'show' : 'hidden'} ${validation.isValidate ? 'valided' : 'invalided'}`}
+						class={`validationText ${userData.password != '' ? 'show' : 'hidden'} ${validation.isValidate ? 'valided' : 'invalided'}`}
 					>
 						{validation.validation}
 					</span>
 				{/each}
 			</div>
-			<a href="iniciarSesion" class="">Ya tienes cuenta ?</a>
+			<a href="iniciarSesion" class="">¿ Ya tienes cuenta ?</a>
 		</div>
 	</form>
 	<footer>
@@ -128,6 +139,10 @@
 </div>
 
 <style>
+	.registerUser {
+		overflow-y: scroll;
+		height: 100vh;
+	}
 	.validationText {
 		font-size: small;
 	}
