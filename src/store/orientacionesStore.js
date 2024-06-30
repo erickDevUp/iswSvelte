@@ -1,7 +1,10 @@
+import { goto } from '$app/navigation';
 import { writable } from 'svelte/store';
 
 // Crear un store con un valor inicial vacío
 export const orientacionesStore = writable([]);
+
+export const orientacionesIdStore = writable([]);
 
 export function editarOrientacion(id, nuevosDatos) {
     orientacionesStore.update(orientaciones => {
@@ -15,9 +18,11 @@ export function editarOrientacion(id, nuevosDatos) {
             }
         });
     });
+    orientacionesIdStore.set([nuevosDatos])
 }
 export function eliminarOrientacion(id) {
     orientacionesStore.update(orientaciones => {
         return orientaciones.filter(orientacion => orientacion.id!== id);
     });
+    goto("./profesor/orientaciones/")
 }
