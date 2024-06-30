@@ -11,6 +11,7 @@
 	export let url;
 	export let method = "PATCH";
 	export let id;
+	export let hiddenEdit;
 
 	let orientaciones = get(orientacionesStore);
 	let orientacion = orientaciones.find(orientacion => orientacion.id === id);
@@ -33,6 +34,7 @@
         const response = await addObject(url, formData, method);
         if (response) {
 			editarOrientacion(id, response);
+			hiddenEdit();
 			alert('Acción realizada con éxito');
         } else {
             alert('El nombre de la orientación ya se encuentra en el sistema');

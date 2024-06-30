@@ -16,6 +16,10 @@
 
 	let fetchUrl = "gestionarTarea/"+id+"/"
 
+	function hiddenEdit() {
+    isShowEdit = false;
+  }
+
 	async function handleClickCheck(e) {		
 		
 		isShowDelete = false
@@ -23,9 +27,9 @@
 		
 		if (result) {
 			eliminarTarea(id)
-			alert("eliminado exitosamente")
+			alert("Acción realizada con éxito")
 		}else{
-			alert("error al eliminar")
+			alert("error al eliminar la tarea")
 		}
 	}
 
@@ -52,5 +56,5 @@
 	</div>
 </div>
 
-<EditTask  pageName={"Tarea"} id={id} isShow={isShowEdit} url={fetchUrl} nombre={nombreTarea} on:click={() => isShowEdit = false}  />
+<EditTask hiddenEdit={hiddenEdit}  pageName={"Tarea"} id={id} isShow={isShowEdit} url={fetchUrl} nombre={nombreTarea} on:click={() => isShowEdit = false}  />
 <Alert on:check={handleClickCheck}  on:close={() => isShowDelete = false} mensaje="Seguro que quieres eliminar esta tarea?" isShow={isShowDelete}/>

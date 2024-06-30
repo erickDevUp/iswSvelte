@@ -3,7 +3,6 @@
 	import { addObject } from '../../services/addObject';
 	import { recursoEDStore,editarRecursoED } from '../../store/recursoEDStore';
 	import { get } from 'svelte/store';
-	import { createEventDispatcher } from 'svelte';
 	export let isShow;
 	let hasFiles = false;
 	let formElement; 
@@ -12,6 +11,7 @@
 	export let url;
 	export let method = "PATCH";
 	export let id;
+	export let hiddenEdit;
 
 	let recursoEDs = get(recursoEDStore);
 	let recursoED = recursoEDs.find(recursoED => recursoED.id === id);
@@ -34,6 +34,7 @@
         const response = await addObject(url, formData, method);
         if (response) {
 			editarRecursoED(id, response);
+			hiddenEdit();
 			alert('Acción realizada con éxito');
         } else {
 			alert('El nombre del recurso educativo ya se encuentra en el sistema');

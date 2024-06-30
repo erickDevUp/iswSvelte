@@ -15,12 +15,16 @@
 	
 	let fetchUrl = "gestionarOrientacion/"+id+"/"
 
+	function hiddenEdit() {
+    isShowEdit = false;
+  }
+
 	async function handleClickCheck() {
-		isShowDelete = false
+		isShowDelete = false;
 		const result = await delObject(fetchUrl)
 		if (result) {
 			eliminarOrientacion(id)
-			alert("orientación eliminada exitosamente")
+			alert("Acción realizada con éxito")
 		}else{
 			alert("error al eliminar la orientación")
 		}
@@ -51,5 +55,5 @@
 	</div>
 </div>
 
-<EditObject on:click={() => isShowEdit = false} isShow={isShowEdit} url={fetchUrl} id={id} pageName="Orientación" method="PATCH"/>
+<EditObject on:click={() => isShowEdit = false} isShow={isShowEdit} url={fetchUrl} id={id} pageName="Orientación" method="PATCH" hiddenEdit={hiddenEdit}/>
 <Alert on:check={handleClickCheck} on:close={() => isShowDelete = false} mensaje="Esto es un mensaje" isShow={isShowDelete}/>

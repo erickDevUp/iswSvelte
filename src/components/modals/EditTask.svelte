@@ -12,6 +12,7 @@
 	export let url;
 	export let method = "PATCH";
 	export let id;
+	export let hiddenEdit;
 
 
 	
@@ -20,9 +21,6 @@
 
 	const dispatch = createEventDispatcher();
 
-	function handleClickCheck() {
-		dispatch('send', { isShow });
-	}
 
 	function handleFileInput(event) {
 		const files = event.target.files;
@@ -45,6 +43,7 @@
         if (response) {
 
 			editarTarea(id, response);
+			hiddenEdit();
 			alert('Acción realizada con éxito');
         } else {
 			
