@@ -5,6 +5,7 @@
 	export let id = '';
 	export let fileUrl;
 	export let fechaEntrega = null;
+	export let recursoID = null;
 </script>
 
 <div class="cont__nt">
@@ -18,15 +19,14 @@
 		{#if tipo}
 			<p>Tipo: <span style="color: #007bff;">{tipo}</span></p>
 		{/if}
-		{#if id}
-			<p>Recurso #: <span style="color: #007bff;">{id}</span></p>
+		{#if recursoID}
+			<p>Recurso #: <span style="color: #007bff;">{recursoID}</span></p>
 		{/if}
 		{#if fechaEntrega}
 			<p>Fecha de Entrega: <span style="color: #007bff;">{parseFecha(fechaEntrega)}</span></p>
 		{/if}
-		
 	</div>
-	<a href={fileUrl} target="_blank" download>
+	<a href={fileUrl} download>
 		<button><span class="ti ti-download"></span></button>
 	</a>
 </div>
