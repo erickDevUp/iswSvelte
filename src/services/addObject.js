@@ -5,9 +5,9 @@ import { browser } from "$app/environment";
 export async function addObject(url = '', data, method ) {
     if (browser) {
         // Asegúrate de que el código se ejecuta en el navegador antes de acceder a localStorage
-
+        
         const authToken = localStorage.getItem('token');
-
+        
         // Configura el objeto fetch con opciones
         const options = {
             method: method, // Método de la solicitud

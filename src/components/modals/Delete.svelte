@@ -2,7 +2,7 @@
 	import Layout from './layout.svelte';
 
 	import { createEventDispatcher } from 'svelte';
-	export let mensaje;
+	export let mensaje ;
 	export let isShow;
 
 	const dispatch = createEventDispatcher();
