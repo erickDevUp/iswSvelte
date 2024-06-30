@@ -9,6 +9,10 @@
   margin-bottom: 50px;
 }
 
+.cont>a {
+  text-decoration: none;
+}
+
 .cont__nt {
   position: relative;
   background-color: rgb(255, 255, 255);
@@ -58,7 +62,10 @@
   text-wrap: pretty;
 }
 
-.cont>.cont__nt>button , .cont>.cont__nt>a>button {
+.cont>.cont__nt>button,
+.cont>.cont__nt>a>button,
+.cont>a>.cont__nt>button,
+.cont>a>.cont__nt>a>button {
   position: absolute;
   top: 5px;
   right: 0;
@@ -68,6 +75,7 @@
   font-size: 1em;
   cursor: pointer;
 }
+
 .cont .card__button {
   position: absolute;
   top: 5px;
@@ -161,12 +169,14 @@ th {
   justify-content: space-between;
 }
 
-.header__buttom>button , .header__buttom>a>button {
+.header__buttom>button,
+.header__buttom>a>button {
   background-color: transparent;
   border: none;
 }
 
-.header__buttom>button>span , .header__buttom>a>button>span {
+.header__buttom>button>span,
+.header__buttom>a>button>span {
   font-size: 1.5em;
   color: blue;
   cursor: pointer;
@@ -181,12 +191,14 @@ th {
 }
 
 
-button>span:hover {
+button>span:hover,a>button>span:hover {
   color: #e7a312;
 }
 
 @media (width<878px) {
-  .header__buttom>button>span, .header__buttom>a>button>span {
+
+  .header__buttom>button>span,
+  .header__buttom>a>button>span {
     font-size: 1em;
   }
 }
