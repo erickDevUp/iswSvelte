@@ -3,12 +3,12 @@
 	import Nav from '../../components/Nav.svelte';
 	import { browser } from '$app/environment';
 	import { roles } from '../../consts';
-	import { error } from '@sveltejs/kit';
 	import { goto } from '$app/navigation';
 
 	if (browser) {
+		console.log(localStorage.getItem('rol'));
 		if (roles.profesor !== localStorage.getItem('rol')) {
-			goto('/error');
+			goto('../error');
 		}
 	}
 </script>
