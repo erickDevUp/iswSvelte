@@ -16,6 +16,7 @@
 	let fetchUrl = "gestionarOrientacion/"+id+"/"
 
 	async function handleClickCheck() {
+		isShowDelete = false
 		const result = await delObject(fetchUrl)
 		if (result) {
 			eliminarOrientacion(id)
@@ -44,7 +45,7 @@
 	<div class="header__buttom card__button">
 		<button on:click={() => isShowEdit = true}><span class="ti-pencil-alt"></span></button>
 		<button on:click={() => isShowDelete = true}><span class="ti-trash"></span></button>
-		<a href={fileUrl} target="_blank" download>
+		<a href={fileUrl} download>
             <button><span class="ti ti-download"></span></button>
         </a>
 	</div>
