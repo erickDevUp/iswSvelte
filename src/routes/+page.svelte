@@ -1,12 +1,10 @@
 <script>
 	// haz  un link manual con el btn comenzar
 	import { goto } from '$app/navigation';
-	
-
 </script>
 
 <svelte:head>
-  <link rel="stylesheet" href="/styles/index.css" />
+	<link rel="stylesheet" href="/styles/index.css" />
 </svelte:head>
 <body>
 	<div class="body__div precent">
@@ -14,14 +12,13 @@
 			<div class="div__cont">
 				<img src="/img/logo__color_principal-hd.png" alt="logo" />
 				<div class="cont__txt">
-					<p class="cont__title">Ingienería de Software</p>
+					<p class="cont__title">Ingeniería de Software</p>
 					<p class="cont__description">
-						¡Bienvenido al entorno virtual de aprendizaje de la asignatura de Ingíeneria de
-						Software! Aquí, tanto estudiantes como profesores encontrarán una plataforma completa y
-						dinámica para potenciar su experiencia educativa.
+						¡Bienvenido al sistema de apoyo de la asignatura de Ingíeneria de Software! Aquí, tanto
+						estudiantes como profesores potenciarán su experiencia educativa.
 					</p>
-					
-				<button class="cont__button" on:click={() => goto('/registrarUsuario')}>Comenzar</button>
+
+					<button class="cont__button" on:click={() => goto('/iniciarSesion')}>Comenzar</button>
 				</div>
 			</div>
 		</div>
@@ -82,7 +79,11 @@
 				</p>
 				<a href="mailto:erickgarciap779@gmail.com">Contáctar</a>
 			</div>
-			<img class="cont__paner" alt="soport" src="/img/ilustracion-plana-soporte-al-cliente_23-2148899114.jpg" />
+			<img
+				class="cont__paner"
+				alt="soport"
+				src="/img/ilustracion-plana-soporte-al-cliente_23-2148899114.jpg"
+			/>
 		</div>
 	</div>
 	<div class="body__div last__div">
