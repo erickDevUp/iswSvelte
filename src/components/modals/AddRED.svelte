@@ -9,6 +9,7 @@
 	export let pageName;
 	export let url;
 	export let method = "POST";
+	export let idOrient;
 
 	function handleFileInput(event) {
 		if (event.target.files.length > 0) {
@@ -17,18 +18,22 @@
 			hasFiles = false;
 		}
 	}
+	
+	
 	async function submitForm(event) {
         event.preventDefault(); // Prevenir el comportamiento por defecto del formulario
         const formData = new FormData(event.target); // Crear FormData directamente desde el formulario
         // Enviar el FormData al servidor
+		formData.append('Orientaciones', parseInt(idOrient));
+		
         const response = await addObject(url, formData, method);
         if (response) {
 			formElement.reset();
 			hasFiles=false;
             recursoEDStore.update(recursoEDs => [...recursoEDs, response]);
-			alert('Se ha enviado correctamente');
+			alert('Acción realizada con éxito');
         } else {
-            alert('Error al enviar el formulario');
+            alert('El nombre del recurso educativo ya se encuentra en el sistema');
         }
     }
 

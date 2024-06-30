@@ -28,7 +28,7 @@
             orientacionesStore.update(orientaciones => [...orientaciones, response]);
 			alert('Acción realizada con éxito');
         } else {
-            alert('Error al enviar el formulario');
+            alert('El nombre de la orientación ya se encuentra en el sistema');
         }
     }
 
