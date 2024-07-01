@@ -3,6 +3,7 @@
 	import { addObject } from '../../services/addObject';
 	import { orientacionesStore,editarOrientacion } from '../../store/orientacionesStore';
 	import { get } from 'svelte/store';
+	import { toastError, toastSuccess } from '../helpers/toasts';
 	export let isShow;
 	let hasFiles = false;
 	let formElement; 
@@ -35,9 +36,9 @@
         if (response) {
 			editarOrientacion(id, response);
 			hiddenEdit();
-			alert('Acción realizada con éxito');
+			toastSuccess('Acción realizada con éxito');
         } else {
-            alert('El nombre de la orientación ya se encuentra en el sistema');
+            toastError('El nombre de la orientación ya se encuentra en el sistema');
         }
     }
 

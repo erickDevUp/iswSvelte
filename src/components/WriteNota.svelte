@@ -7,7 +7,9 @@
 	export let nombreAlumno;
 	export let id;
 	
-
+	function hiddenEdit() {
+    isShowEdit = false;
+  }
 	let fetchUrl = "gestionarTarea/"+id+"/"
 </script>
 
@@ -15,11 +17,10 @@
 	<div class="nt__t">
 		<div class="t__d">
 			<img src="/img/illustration-checklist.jpg" alt="checklist" />
-			<p>Nombre Tarea</p>
+			<p>{nombreAlumno}</p>
 		</div>
 	</div>
 	<div class="nt__d">
-		<p>Nombre del alumno: <span style="color: #007bff;">{nombreAlumno}</span></p>
 		<p>Titulo: <span style="color: #007bff;">{nombreTarea}</span></p>
 		<p>Nota: <span style={`${!nota||nota==2?"color: red;":"color: green;"}`}>{nota?nota:"Sin Asignar"}</span></p>
 	</div>
@@ -32,4 +33,4 @@
 
 </div>
 
-<AddNota on:send={()=>isShowEdit=false} isShow={isShowEdit} url={fetchUrl} id={id} on:click={(e) => {e.preventDefault(), (isShowEdit = false)}} />
+<AddNota hiddenEdit={hiddenEdit}  isShow={isShowEdit} url={fetchUrl} id={id} on:click={(e) => {e.preventDefault(), (isShowEdit = false)}} />

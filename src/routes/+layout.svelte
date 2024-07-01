@@ -1,5 +1,6 @@
 <script>
 	import './styles.css';
+	  import { SvelteToast } from '@zerodevx/svelte-toast'
 </script>
 
 <svelte:head>
@@ -9,6 +10,7 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 <div class="app">
+	<SvelteToast />
 	<main>
 		<slot />
 	</main>

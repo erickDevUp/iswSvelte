@@ -3,6 +3,7 @@
 	import EditTask from './modals/EditTask.svelte';
 	import { eliminarTarea } from '../store/tareaStore';
 	import { delObject} from "../services/delObject";
+	import { toastError, toastSuccess } from './helpers/toasts';
 
     let isShowDelete = false;
 	let isShowEdit = false;
@@ -27,9 +28,9 @@
 		
 		if (result) {
 			eliminarTarea(id)
-			alert("Acción realizada con éxito")
+			toastSuccess("Acción realizada con éxito")
 		}else{
-			alert("error al eliminar la tarea")
+			toastError("error al eliminar la tarea")
 		}
 	}
 

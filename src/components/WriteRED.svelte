@@ -3,6 +3,7 @@
 	import EditRED from './modals/EditRED.svelte';
 	import { delObject } from '../services/delObject';
 	import { eliminarRecursoED } from '../store/recursoEDStore';
+	import { toastError, toastSuccess } from './helpers/toasts';
 	let isShowDelete = false;
 	let isShowEdit = false;
 
@@ -20,9 +21,9 @@
 		const result = await delObject(fetchUrl);
 		if (result) {
 			eliminarRecursoED(id);
-			alert('Acción realizada con éxito');
+			toastSuccess('Acción realizada con éxito');
 		} else {
-			alert('error al eliminar el recurso educativo');
+			toastError('error al eliminar el recurso educativo');
 		}
 	}
 </script>

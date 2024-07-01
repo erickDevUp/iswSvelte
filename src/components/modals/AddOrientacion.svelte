@@ -2,6 +2,7 @@
 	import Layout from './layout.svelte';
 	import { addObject } from '../../services/addObject';
 	import { orientacionesStore } from '../../store/orientacionesStore';
+	import { toastError, toastSuccess } from '../helpers/toasts';
 	export let isShow;
 	let hasFiles = false;
 	let formElement; 
@@ -26,9 +27,9 @@
 			formElement.reset();
 			hasFiles=false;
             orientacionesStore.update(orientaciones => [...orientaciones, response]);
-			alert('Acción realizada con éxito');
+			toastSuccess('Acción realizada con éxito');
         } else {
-            alert('El nombre de la orientación ya se encuentra en el sistema');
+            toastError('El nombre de la orientación ya se encuentra en el sistema');
         }
     }
 

@@ -4,6 +4,7 @@
 	import { eliminarProfesor } from '../store/profesoresStore';
 	import EditProfesor from './modals/EditProfesor.svelte';
 	import EditProfesorPass from './modals/EditProfesorPass.svelte';
+	import { toastError, toastSuccess } from './helpers/toasts';
 
 	let isShowDelete = false;
 	let isShowEdit = false;
@@ -27,9 +28,9 @@
 		const result = await delObject(fetchUrl);
 		if (result) {
 			eliminarProfesor(id);
-			alert('Acción realizada con éxito');
+			toastSuccess('Acción realizada con éxito');
 		} else {
-			alert('error al eliminar el profesor');
+			toastError('error al eliminar el profesor');
 		}
 	}
 </script>

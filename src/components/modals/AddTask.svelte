@@ -2,6 +2,7 @@
 	import {  tareaStore } from '../../store/tareaStore';
 	import { addObject } from '../../services/addObject';
 	import Layout from './layout.svelte';
+	import { toastError, toastSuccess } from '../helpers/toasts';
 	export let isShow;
 	let hasFiles = false;
 	let formElement
@@ -34,9 +35,9 @@
 			hasFiles = false;
 			formElement.reset();
 			tareaStore.update(tareas => [...tareas, response]);
-			alert('Acción realizada con éxito');
+			toastSuccess('Acción realizada con éxito');
 		} else {
-			alert('La tarea ya se encuentra en el sistema');
+			toastError('La tarea ya se encuentra en el sistema');
 		}
 	}
 	//en img necesito un check img

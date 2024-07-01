@@ -3,6 +3,7 @@
 	import Layout from './layout.svelte';
 	import { addObject } from '../../services/addObject';
 	import { profesoresStore } from '../../store/profesoresStore';
+	import { toastError, toastSuccess } from '../helpers/toasts';
 
 	export let isShow;
 	export let url = 'auth/register/';
@@ -93,9 +94,9 @@
 			if (response) {
 				profesoresStore.update(profesores => [...profesores, response.user]);
 				formElement.reset();
-				alert('Acción realizada con éxito');
+				toastSuccess('Acción realizada con éxito');
 			} else {
-				alert('El profesor ya se encuentra en el sistema');
+				toastError('El profesor ya se encuentra en el sistema');
 			}
 		}
     }

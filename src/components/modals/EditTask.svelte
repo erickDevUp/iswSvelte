@@ -4,6 +4,7 @@
 	import { addObject } from '../../services/addObject';
 	import Layout from './layout.svelte';
 	import { createEventDispatcher } from 'svelte';
+	import { toastError, toastSuccess } from '../helpers/toasts';
 	export let isShow;
 	let hasFiles = false;
 
@@ -44,10 +45,10 @@
 
 			editarTarea(id, response);
 			hiddenEdit();
-			alert('Acción realizada con éxito');
+			toastSuccess('Acción realizada con éxito');
         } else {
 			
-            alert('Error al enviar el formulario');
+            toastError('Error al enviar el formulario');
         }
     }
 	//en img necesito un check img

@@ -3,6 +3,7 @@
 	import { addObject } from '../../services/addObject';
 	import { recursoEDStore,editarRecursoED } from '../../store/recursoEDStore';
 	import { get } from 'svelte/store';
+	import { toastError, toastSuccess } from '../helpers/toasts';
 	export let isShow;
 	let hasFiles = false;
 	let formElement; 
@@ -35,9 +36,9 @@
         if (response) {
 			editarRecursoED(id, response);
 			hiddenEdit();
-			alert('Acción realizada con éxito');
+			toastSuccess('Acción realizada con éxito');
         } else {
-			alert('El nombre del recurso educativo ya se encuentra en el sistema');
+			toastError('El nombre del recurso educativo ya se encuentra en el sistema');
         }
     }
 

@@ -3,6 +3,7 @@
 	import { addObject } from '../../services/addObject';
 	import { profesoresStore, editarProfesor } from '../../store/profesoresStore';
 	import { get } from 'svelte/store';
+	import { toastError, toastSuccess } from '../helpers/toasts';
 	export let isShow;
 	let formElement;
 
@@ -24,10 +25,10 @@
 		const response = await addObject(url, formData, method);
 		if (response) {
 			editarProfesor(id, response);
-			alert('Acción realizada con éxito');
+			toastSuccess('Acción realizada con éxito');
 			hiddenEdit();
 		} else {
-			alert('El Profesor ya se encuentra en el sistema');
+			toastError('El Profesor ya se encuentra en el sistema');
 		}
 	}
 

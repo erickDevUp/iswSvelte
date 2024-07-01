@@ -2,6 +2,7 @@
 	import Layout from './layout.svelte';
 	import { addObject } from '../../services/addObject';
 	import { editarProfesor } from '../../store/profesoresStore';
+	import { toastError, toastSuccess } from '../helpers/toasts';
 
 	export let isShow;
 
@@ -91,10 +92,10 @@
 			const response = await addObject(url, formData, method);
 			if (response) {
 				editarProfesor(id, response);
-				alert('Acción realizada con éxito');
+				toastSuccess('Acción realizada con éxito');
 				hiddenEdit();
 			} else {
-				alert('Error al editar la contraseña');
+				toastError('Error al editar la contraseña');
 			}
 		}
 	}

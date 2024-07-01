@@ -4,21 +4,18 @@
 	import { tareaStore, editarTarea } from '../../store/tareaStore';
 	import { get } from 'svelte/store';
 	import { createEventDispatcher } from 'svelte';
+	import { toastSuccess, toastError } from '../helpers/toasts';
 
 	export let isShow;
 	
 	export let url;
 	export let method = "PATCH";
 	export let id;
+	export let hiddenEdit;
 
 	let Tareas = get(tareaStore);
 	let nota = Tareas.find(tarea => tarea.id === id).nota;
-	let notaValue = nota;
-
-	const dispatch = createEventDispatcher();
-	function handleClickCheck() {
-		dispatch('send', { isShow });
-	}
+	let notaValue = nota;	
 
 
 	async function submitForm(event) {
@@ -26,12 +23,15 @@
         const formData = new FormData(event.target); // Crear FormData directamente desde el formulario
 	
         const response = await addObject(url, formData, method);
-
+		console.log(notaValue);
+		if (notaValue>5) notaValue=5;
+		if (notaValue<2) notaValue=2;
         if (response) {
 			editarTarea(id, response);
-			alert('Acción realizada con éxito');
+			hiddenEdit();
+			toastSuccess('Acción realizada con éxito');
         } else {
-            alert('Error al enviar el formulario');
+            toastError('Error al enviar el formulario');
         }
     }
 </script>
@@ -44,8 +44,8 @@
 		</div>
 		<hr />
 		<div class="content">
-			<input type="number" name="nota"  bind:value={notaValue}  placeholder="Asignar Nota" max="5" min="2" step="1" />
-			<button on:click={handleClickCheck}>Asignar</button>
+			<input type="number" name="nota"  bind:value={notaValue} required  placeholder="Asignar Nota" max="5" min="2" step="1" />
+			<button>Asignar</button>
 		</div>
 	</form>
 </Layout>

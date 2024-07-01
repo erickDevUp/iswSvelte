@@ -4,6 +4,7 @@
 	import { parseFecha } from '../helpers/parseFecha';
 	import { delObject} from "../services/delObject";
 	import { eliminarOrientacion } from '../store/orientacionesStore';
+	import { toastError, toastSuccess } from './helpers/toasts';
     let isShowDelete = false;
 	let isShowEdit = false;
     
@@ -24,9 +25,9 @@
 		const result = await delObject(fetchUrl)
 		if (result) {
 			eliminarOrientacion(id)
-			alert("Acción realizada con éxito")
+			toastSuccess("Acción realizada con éxito")
 		}else{
-			alert("error al eliminar la orientación")
+			toastError("error al eliminar la orientación")
 		}
 	}
 	
