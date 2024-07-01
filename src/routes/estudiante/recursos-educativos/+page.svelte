@@ -28,4 +28,5 @@
 				fileUrl={recursoED.archivo}
 			/>
 		{/each}
+	</div>
 </section>
