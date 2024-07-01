@@ -1,9 +1,11 @@
 <script>
 	import { searchObject } from '../services/searchObject';
+	import { toastError } from './helpers/toasts';
 
 	export let getObject;
 	export let store;
 	export let url;
+	export let cancelUrl = '';
 
 	let searchValue = '';
 
@@ -15,13 +17,13 @@
 		if (result) {
 			store.set(result);
 		} else {
-			alert('error al buscar la orientación');
+			toastError('error al buscar la orientación');
 		}
 	}
 
 	async function handleCancel(e) {
 		e.preventDefault();
-		await getObject();
+		await getObject(cancelUrl);
 		searchValue = '';
 	}
 </script>
