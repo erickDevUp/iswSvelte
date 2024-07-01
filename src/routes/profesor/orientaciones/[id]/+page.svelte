@@ -9,9 +9,8 @@
 	import { cargarOrientaciones } from '../../../../helpers/cargarOrientaciones';
 	import { cargarRecursoED } from '../../../../helpers/cargarRecursoED';
 	import { recursoEDStore } from '../../../../store/recursoEDStore';
-	import { page } from '$app/stores';
+	import Search from '../../../../components/Search.svelte';
 	import { onMount } from 'svelte';
-	import { get } from 'svelte/store';
 
 	export let data;
 	const id = data.id;
@@ -64,7 +63,7 @@
 			{/each}
 		</div>
 	{/if}
-
+	<Search url={"gestionarTarea/"} cancelUrl={'gestionarTarea/tarea/' + id + '/'} getObject={cargarTarea} store={tareaStore} />
 	{#if $tareaStore.length > 0}
 		<div>
 			<div class="section__header">
