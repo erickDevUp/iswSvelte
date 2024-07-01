@@ -13,7 +13,7 @@
 <body>
 	<Nav></Nav>
 	<main>
-		<LinkMenu />
+		
 		<slot />
 	</main>
 </body>
