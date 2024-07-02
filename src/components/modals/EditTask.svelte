@@ -20,8 +20,6 @@
 	let tareas = get(tareaStore);
 	let tarea = tareas.find(tarea=> tarea.id === id)
 
-	const dispatch = createEventDispatcher();
-
 
 	function handleFileInput(event) {
 		const files = event.target.files;
@@ -77,7 +75,7 @@
 				<input type="file" name="tareaArchivo" id="input-file" class="addFile" multiple on:change={handleFileInput} />
 			</div>
 			<div id="preview"></div>
-			<button on:click={handleClickCheck}>Enviar</button>
+			<button>Enviar</button>
 		</div>
 	</form>
 </Layout>
