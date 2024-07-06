@@ -22,7 +22,7 @@
 	</div>
 	<div class="cont">
 		{#each $orientacionesStore as orientacion (orientacion.id)}
-			<a class="link" href="/estudiante/orientaciones/{orientacion.id}">
+			<a class="link" href="/estudiante/gestionarTarea/{orientacion.id}">
 				<Orientacion
 					nombre={orientacion.nombre}
 					tipo={orientacion.tipo}

@@ -19,9 +19,6 @@
 		{#if tipo}
 			<p>Tipo: <span style="color: #007bff;">{tipo}</span></p>
 		{/if}
-		{#if recursoID}
-			<p>Recurso #: <span style="color: #007bff;">{recursoID}</span></p>
-		{/if}
 		{#if fechaEntrega}
 			<p>Fecha de Entrega: <span style="color: #007bff;">{parseFecha(fechaEntrega)}</span></p>
 		{/if}

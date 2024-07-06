@@ -23,11 +23,11 @@
 			</div>
 			<div class="div__input">
 				<input style="opacity: 0;" type="email" placeholder="Correo" />
-				<input type="text" placeholder="Nombre de usuario" required bind:value={username} />
+				<input type="text" placeholder="Nombre de usuario" pattern="[a-zA-Z0-9]*" title="por favor, no utilizar caracteres especiales" required bind:value={username} />
 				<input type="password" placeholder="Contraseña" required bind:value={password} />
 				<button type="submit">Iniciar Sesión</button>
 			</div>
-			<a href="registrarUsuario" class="">No tienes cuenta ?</a>
+			<a href="registrarUsuario" class="">¿ No tienes cuenta ?</a>
 		</div>
 	</form>
 	<footer>

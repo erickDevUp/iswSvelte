@@ -1,22 +1,27 @@
 <script>
 	import './styles.css';
-	  import { SvelteToast } from '@zerodevx/svelte-toast'
+	import { SvelteToast } from '@zerodevx/svelte-toast';
 </script>
 
 <svelte:head>
-	<title>Eva Ingienería de Software</title>
+	<title>EVA</title>
 	<link rel="icon" href="img/logo__color_segundario-hd.png" />
 
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 <div class="app">
-	<SvelteToast />
+	<div class="wrap">
+		<SvelteToast />
+	</div>
 	<main>
 		<slot />
 	</main>
 </div>
 
 <style>
+	.wrap {
+		font-size: 15px;
+	}
 	.app {
 		display: flex;
 		flex-direction: column;

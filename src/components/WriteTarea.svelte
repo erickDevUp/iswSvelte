@@ -1,6 +1,6 @@
 <script>
 	import Alert from './modals/Delete.svelte';
-	import EditTask from './modals/EditTask.svelte';
+	import EditTask from './modals/EditTarea.svelte';
 	import { eliminarTarea } from '../store/tareaStore';
 	import { delObject} from "../services/delObject";
 	import { toastError, toastSuccess } from './helpers/toasts';

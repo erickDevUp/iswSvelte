@@ -33,6 +33,7 @@
 		type="text"
 		placeholder="Buscar..."
 		pattern="[a-zA-Z0-9]*"
+		name="buscar"
 		bind:value={searchValue}
 		title="Por favor, no utilizar caracteres especiales"
 	/>

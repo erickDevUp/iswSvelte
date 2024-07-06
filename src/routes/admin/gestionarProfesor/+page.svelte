@@ -1,9 +1,9 @@
 <script>
-	import Profesor from '../../components/WriteProfesor.svelte';
-	import { profesoresStore } from '../../store/profesoresStore';
-	import { cargarProfesor } from '../../helpers/cargarProfesor';
-	import AddProfesor from '../../components/modals/AddProfesor.svelte';
-	import Search from '../../components/Search.svelte';
+	import Profesor from '../../../components/WriteProfesor.svelte';
+	import { profesoresStore } from '../../../store/profesoresStore';
+	import { cargarProfesor } from '../../../helpers/cargarProfesor';
+	import AddProfesor from '../../../components/modals/AddProfesor.svelte';
+	import Search from '../../../components/Search.svelte';
 	import { onMount } from 'svelte';
 	let isShowAddProfesor = false;
 

@@ -1,6 +1,6 @@
 <script>
 	import Tarea from '../../../../components/WriteTarea.svelte';
-	import AddTask from '../../../../components/modals/AddTask.svelte';
+	import AddTask from '../../../../components/modals/AddTarea.svelte';
 	import { tareaStore } from '../../../../store/tareaStore';
 	import Orientacion from '../../../../components/ViewData.svelte';
 	import RecursoEducativo from '../../../../components/ViewData.svelte';
@@ -10,14 +10,10 @@
 	import { recursoEDStore } from '../../../../store/recursoEDStore';
 	import { orientacionesIdStore } from '../../../../store/orientacionesStore';
 
-	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 
-	
 	export let data;
 	const id = data.id;
-	let isShowAddRecursoED = false;
-
 	onMount(async () => {
 		await cargarTarea('gestionarTarea/tareaUser/' + id + '/');
 		await cargarOrientaciones(id);
@@ -27,6 +23,9 @@
 	let isShowAddTask = false;
 </script>
 
+<svelte:head>
+	<title>GestionarTarea</title>
+</svelte:head>
 <section>
 	<div>
 		<div class="section__header">
@@ -57,27 +56,26 @@
 			{/each}
 		</div>
 	{/if}
-
-	<div>
-		<div class="section__header">
-			<h1>Tareas</h1>
-			<div class="header__buttom">
-				<button on:click={() => (isShowAddTask = true)}><span class="ti-plus"></span></button>
+		<div>
+			<div class="section__header">
+				<h1>Tareas</h1>
+				<div class="header__buttom">
+					<button on:click={() => (isShowAddTask = true)}><span class="ti-plus"></span></button>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="cont">
-		{#each $tareaStore as tarea (tarea.id)}
-			<Tarea
-				nota={tarea.nota}
-				nombreTarea={tarea.nombre}
-				tipo={tarea.tipo}
-				fileUrl={tarea.tareaArchivo}
-				id={tarea.id}
-			/>
-		{/each}
-	</div>
+		<div class="cont">
+			{#each $tareaStore as tarea (tarea.id)}
+				<Tarea
+					nota={tarea.nota}
+					nombreTarea={tarea.nombre}
+					tipo={tarea.tipo}
+					fileUrl={tarea.tareaArchivo}
+					id={tarea.id}
+				/>
+			{/each}
+		</div>
 	<AddTask
 		pageName={'Tarea'}
 		method="POST"

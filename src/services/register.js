@@ -4,41 +4,42 @@ import { goto } from '$app/navigation';
 import { roles } from '../consts';
 
 
-export async function register(url = '', data, method ) {
-  
-        console.log(data);
+export async function register(url = '', data, method) {
 
-        // Configura el objeto fetch con opciones
-        const options = {
-            method: method, // Método de la solicitud
+    console.log(data);
 
-            body: data // Datos enviados son el FormData
-        };
+    // Configura el objeto fetch con opciones
+    const options = {
+        method: method, // Método de la solicitud
 
-        try {
-            const response = await fetch(apiUrl + url, options);
-            if (!response.ok) {
-                alert('Credenciales incorrectas');
-                throw new Error('Respuesta no OK');
-            }
+        body: data // Datos enviados son el FormData
+    };
 
-            const data = await response.json(); // Espera y parsea la respuesta como JSON
-
-            // Guarda el token y el rol en localStorage
-            localStorage.setItem('token', data.token);
-            localStorage.setItem('rol', data.user.rol);
-            if (data.user.rol === roles.admin) {
-                goto('/admin');
-            }
-            else if (data.user.rol === roles.alumno) {
-                goto('/estudiante/orientaciones');
-            }
-            else if (data.user.rol === roles.profesor) {
-                goto('/profesor/orientaciones');
-            }
-        } catch (error) {
-            console.error('Error en inicio de sesión:', error);
+    try {
+        const response = await fetch(apiUrl + url, options);
+        if (!response.ok) {
+            alert('Credenciales incorrectas');
+            throw new Error('Respuesta no OK');
         }
 
-    
+        const data = await response.json(); // Espera y parsea la respuesta como JSON
+
+        // Guarda el token y el rol en localStorage
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('rol', data.user.rol);
+        localStorage.setItem('username', data.user.username)
+        if (data.user.rol === roles.admin) {
+            goto('/admin/gestionarProfesor');
+        }
+        else if (data.user.rol === roles.alumno) {
+            goto('/estudiante/gestionarTarea');
+        }
+        else if (data.user.rol === roles.profesor) {
+            goto('/profesor/gestionarOrientacion');
+        }
+    } catch (error) {
+        console.error('Error en inicio de sesión:', error);
+    }
+
+
 }

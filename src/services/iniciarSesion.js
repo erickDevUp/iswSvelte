@@ -1,5 +1,6 @@
 
 import { goto } from "$app/navigation";
+import { toastError } from "../components/helpers/toasts.JS";
 import { apiUrl, roles } from "../consts";
 export async function iniciarSesion(username, password) {
     // Crear el cuerpo de la solicitud con las credenciales
@@ -18,7 +19,7 @@ export async function iniciarSesion(username, password) {
         const response = await fetch(apiUrl + 'auth/login/', requestOptions);
 
         if (!response.ok) {
-            alert('Credenciales incorrectas');
+            toastError('Credenciales incorrectas');
             throw new Error('Respuesta no OK');
         }
 
@@ -27,14 +28,15 @@ export async function iniciarSesion(username, password) {
          // Guarda el token y el rol en localStorage
         localStorage.setItem('token', data.token);
         localStorage.setItem('rol', data.user.rol);
+        localStorage.setItem('username',data.user.username)
         if (data.user.rol === roles.admin) {
-            goto('/admin');
+            goto('/admin/gestionarProfesor');
         }
         else if (data.user.rol === roles.alumno) {
-            goto('/estudiante/orientaciones');
+            goto('/estudiante/gestionarTarea');
         }
         else if (data.user.rol === roles.profesor) {
-            goto('/profesor/orientaciones');
+            goto('/profesor/gestionarOrientacion');
         }
     } catch (error) {
         console.error('Error en inicio de sesión:', error);

@@ -25,6 +25,9 @@
 	const fetchUrl = 'recursoEducativo/';
 </script>
 
+<svelte:head>
+	<title>GestionarOrientacion</title>
+</svelte:head>
 <section>
 	<div>
 		<div class="section__header">

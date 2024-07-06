@@ -21,6 +21,8 @@ function toastError(message) {
             '--toastBackground': 'rgba(255,99,71,0.9)',
             '--toastBarBackground': '#fff'
         },
+        
+
         placement: 'top-center'
     });
 }

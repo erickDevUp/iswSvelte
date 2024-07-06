@@ -23,8 +23,8 @@
 			<p>{mensaje || "¿Está seguro que desea eliminar?"}</p>
 		</div>
 		<div class="alert__b">
-			<button class="ti-check" on:click|preventDefault={handleClickCheck}></button>
-			<button class="ti-close" on:click={handleClickClose}></button>
+			<button class="ti-check" name="eliminar" on:click|preventDefault={handleClickCheck}></button>
+			<button class="ti-close" name="cancelar" on:click={handleClickClose}></button>
 		</div>
 	</div>
 </Layout>
